@@ -8,16 +8,24 @@ import org.springframework.web.bind.annotation.RestController;
 import com.springboot.bean.People;
 import com.springboot.bean.RechageResponse;
 import com.springboot.service.PeopleService;
+import com.springboot.util.RedisUtil;
 
 @RestController
 @RequestMapping("/hello2")
 public class HelloController {
 	@Autowired
 	private PeopleService peopleSevice;
+	@Autowired
+	private RedisUtil redisUtil;
 
 	@RequestMapping("/a")
 	public String a(){
 		return "a";
+	}
+	@RequestMapping("/insertRedis")
+	public String insertRedis(){
+		redisUtil.set("sex", "男");
+		return "ok";
 	}
 	
 	@RequestMapping("/insertPerople")
