@@ -10,9 +10,13 @@ import com.springboot.bean.RechageResponse;
 import com.springboot.service.PeopleService;
 import com.springboot.util.RedisUtil;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 @RestController
 @RequestMapping("/hello2")
 public class HelloController {
+	private static final Logger logger = LoggerFactory.getLogger(HelloController.class);
 	@Autowired
 	private PeopleService peopleSevice;
 	@Autowired
@@ -20,6 +24,7 @@ public class HelloController {
 
 	@RequestMapping("/a")
 	public String a(){
+		logger.error("输入a");
 		return "a";
 	}
 	@RequestMapping("/insertRedis")
